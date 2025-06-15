@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./Courses.css";
 import { Link } from "react-router";
+import { API_URL } from "../constants.js";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -11,9 +12,7 @@ const Courses = () => {
     (async () => {
       try {
         setIsLoading(true);
-        const res = await axios.get(
-          "http://localhost:3000/api/v1/user/courses"
-        );
+        const res = await axios.get(`${API_URL}/api/v1/user/courses`);
         if (res.status === 200) {
           setCourses(res.data.courses);
         } else {
@@ -45,7 +44,9 @@ const Courses = () => {
                 <p>{course.description}</p>
                 <span>₹ {course.price}</span>
                 <button className="course-card-btn">
-                  <Link to={`/course/${course._id}`} className="link-card">View Details</Link>
+                  <Link to={`/course/${course._id}`} className="link-card">
+                    View Details
+                  </Link>
                 </button>
               </div>
             ))}

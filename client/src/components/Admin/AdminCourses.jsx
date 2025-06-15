@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./AdminCourses.css";
 import { Link } from "react-router";
+import { API_URL } from "../constants.js";
 
 export const AdminCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -11,7 +12,7 @@ export const AdminCourses = () => {
     title: "",
     description: "",
     price: "",
-    imageLink: ""
+    imageLink: "",
   });
 
   window.addEventListener("keydown", (e) => {
@@ -24,14 +25,11 @@ export const AdminCourses = () => {
     (async () => {
       try {
         setIsLoading(true);
-        const res = await axios.get(
-          "http://localhost:3000/api/v1/admin/courses",
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
+        const res = await axios.get(`${API_URL}/api/v1/admin/courses`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
         if (res.status === 200) {
           setCourses(res.data.courses);
         } else {
@@ -47,9 +45,9 @@ export const AdminCourses = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -57,7 +55,7 @@ export const AdminCourses = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/admin/courses",
+        `${API_URL}/api/v1/admin/courses`,
         formData,
         {
           headers: {
@@ -66,13 +64,13 @@ export const AdminCourses = () => {
         }
       );
       if (res.status === 200) {
-        setCourses(prev => [...prev, res.data.course]);
+        setCourses((prev) => [...prev, res.data.course]);
         setShowModal(false);
         setFormData({
           title: "",
           description: "",
           price: "",
-          imageLink: ""
+          imageLink: "",
         });
       }
     } catch (err) {
@@ -96,7 +94,11 @@ export const AdminCourses = () => {
                 }}
               >
                 <h2 className="course-title">Courses</h2>
-                <button className="course-card-btn" onClick={() => setShowModal(true)} style={{cursor: "pointer"}}>
+                <button
+                  className="course-card-btn"
+                  onClick={() => setShowModal(true)}
+                  style={{ cursor: "pointer" }}
+                >
                   Add New
                 </button>
               </div>
@@ -105,15 +107,16 @@ export const AdminCourses = () => {
                 {courses.map((course) => (
                   <div key={course._id} className="course-card">
                     <div style={{ width: "100%" }}>
-                      <img 
-                        src={course.imageLink}
-                      />
+                      <img src={course.imageLink} />
                     </div>
                     <h2>{course.title}</h2>
                     <p>{course.description}</p>
                     <span>₹ {course.price}</span>
                     <button className="course-card-btn">
-                      <Link to={`/admin/course/${course._id}`} className="link-card">
+                      <Link
+                        to={`/admin/course/${course._id}`}
+                        className="link-card"
+                      >
                         View Details
                       </Link>
                     </button>
@@ -134,7 +137,9 @@ export const AdminCourses = () => {
           <div className="modal-content">
             <div className="modal-header">
               <h2>Add New Course</h2>
-              <button className="close-btn" onClick={() => setShowModal(false)}>×</button>
+              <button className="close-btn" onClick={() => setShowModal(false)}>
+                ×
+              </button>
             </div>
             <form onSubmit={handleSubmit} className="course-form">
               <div className="form-group">
@@ -181,7 +186,11 @@ export const AdminCourses = () => {
                 />
               </div>
               <div className="form-actions">
-                <button type="button" className="cancel-btn" onClick={() => setShowModal(false)}>
+                <button
+                  type="button"
+                  className="cancel-btn"
+                  onClick={() => setShowModal(false)}
+                >
                   Cancel
                 </button>
                 <button type="submit" className="submit-btn">

@@ -1,0 +1,1 @@
+export const API_URL = `https://course-selling-app-jhhn.onrender.com`;

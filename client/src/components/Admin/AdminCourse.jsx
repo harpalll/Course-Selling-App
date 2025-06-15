@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { API_URL } from "../constants.js";
 
 export const AdminCourse = () => {
   const { courseId } = useParams();
@@ -26,9 +27,7 @@ export const AdminCourse = () => {
   const fetchCourse = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get(
-        `http://localhost:3000/api/v1/user/course/${courseId}`
-      );
+      const res = await axios.get(`${API_URL}/api/v1/user/course/${courseId}`);
       if (res.status === 200) {
         setCourse(res.data.course);
       } else {
@@ -59,7 +58,7 @@ export const AdminCourse = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/v1/admin/courses/${courseId}`,
+        `${API_URL}/api/v1/admin/courses/${courseId}`,
         formData,
         {
           headers: {

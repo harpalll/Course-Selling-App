@@ -4,20 +4,18 @@ import { CiUser } from "react-icons/ci";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { Link } from "react-router";
 import { FaUniversity } from "react-icons/fa";
+import { API_URL } from "../constants.js";
 
 export const AdminHome = () => {
   const [analytics, setAnalytics] = useState({});
 
   useEffect(() => {
     (async () => {
-      const res = await axios.get(
-        "http://localhost:3000/api/v1/admin/analytics",
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const res = await axios.get(`${API_URL}/api/v1/admin/analytics`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
 
       if (res.status == 200) {
         setAnalytics({

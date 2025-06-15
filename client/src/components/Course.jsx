@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { API_URL } from "../constants.js";
 
 export const Course = () => {
   const { courseId } = useParams();
@@ -16,7 +17,7 @@ export const Course = () => {
       try {
         setIsLoading(true);
         const res = await axios.get(
-          `http://localhost:3000/api/v1/user/course/${courseId}`
+          `${API_URL}/api/v1/user/course/${courseId}`
         );
         if (res.status === 200) {
           setCourse(res.data.course);
@@ -35,7 +36,7 @@ export const Course = () => {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        `http://localhost:3000/api/v1/user/courses/${courseId}`,
+        `${API_URL}/api/v1/user/courses/${courseId}`,
         {},
         {
           headers: {

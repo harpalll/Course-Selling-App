@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { API_URL } from "../constants.js";
 
 export const AdminRegister = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -9,7 +10,7 @@ export const AdminRegister = () => {
 
   async function handleRegister(e) {
     e.preventDefault();
-    const res = await axios.post("http://localhost:3000/api/v1/admin/signup", {
+    const res = await axios.post(`${API_URL}/api/v1/admin/signup`, {
       username: formData.username,
       password: formData.password,
     });

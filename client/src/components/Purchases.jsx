@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { API_URL } from "../constants.js";
 
 export const Purchases = () => {
   const [purchasedCourses, setPurchasedCourses] = useState([]);
@@ -11,7 +12,7 @@ export const Purchases = () => {
       try {
         setIsLoading(true);
         const res = await axios.get(
-          "http://localhost:3000/api/v1/user/purchasedCourses",
+          `${API_URL}/api/v1/user/purchasedCourses`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

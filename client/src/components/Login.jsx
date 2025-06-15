@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/authContext";
+import { API_URL } from "../constants.js";
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -11,7 +12,7 @@ const Login = () => {
 
   async function handleLogin(e) {
     e.preventDefault();
-    const res = await axios.post("http://localhost:3000/api/v1/user/login", {
+    const res = await axios.post(`${API_URL}/api/v1/user/login`, {
       username: formData.username,
       password: formData.password,
     });
@@ -28,7 +29,6 @@ const Login = () => {
   }
   return (
     <>
-
       <div className="card">
         <h2 className="card-heading">
           Welcome
