@@ -3,7 +3,8 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/authContext.js";
-import { API_URL } from "../constants.js";
+import { API_URL } from "../../constants.js";
+
 
 export const AdminLogin = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });

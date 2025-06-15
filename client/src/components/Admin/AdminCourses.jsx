@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./AdminCourses.css";
 import { Link } from "react-router";
-import { API_URL } from "../constants.js";
+import { API_URL } from "../../constants.js";
 
 export const AdminCourses = () => {
   const [courses, setCourses] = useState([]);

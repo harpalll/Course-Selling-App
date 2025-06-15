@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { API_URL } from "../constants.js";
+import { API_URL } from "../../constants.js";
 
 export const AdminRegister = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });

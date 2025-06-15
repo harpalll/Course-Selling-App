@@ -4,7 +4,7 @@ import { CiUser } from "react-icons/ci";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { Link } from "react-router";
 import { FaUniversity } from "react-icons/fa";
-import { API_URL } from "../constants.js";
+import { API_URL } from "../../constants.js";
 
 export const AdminHome = () => {
   const [analytics, setAnalytics] = useState({});

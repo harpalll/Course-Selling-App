@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { API_URL } from "../constants.js";
+import { API_URL } from "../../constants.js";
 
 export const AdminCourse = () => {
   const { courseId } = useParams();
