@@ -1,0 +1,268 @@
+/* start  writing from here */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  transition: all 0.5s ease;
+}
+
+.link:hover {
+  scale: 1.1;
+  border-bottom: 1px solid black;
+}
+
+.nav-heading {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  transition: all 0.5s ease;
+}
+
+.nav-heading:hover {
+  scale: 1.1;
+}
+
+.home-btn {
+  outline: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 10px;
+  transition: all 0.1s ease;
+  background: black;
+  color: white;
+}
+
+.home-btn:hover {
+  border-radius: 12px;
+}
+
+.home-btn:active {
+  scale: 0.8;
+}
+
+.home-img {
+  width: 400px;
+  height: 300px;
+}
+
+input {
+  appearance: none;
+  border-radius: 0;
+}
+
+.card {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 425px;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.card-heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.222;
+  small {
+    display: block;
+    font-size: 0.75em;
+    font-weight: 400;
+    margin-top: 0.25em;
+  }
+}
+
+.input {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  padding-top: 1.5rem;
+  & + .input {
+    margin-top: 1.5rem;
+  }
+}
+
+.input-label {
+  color: #000;
+  position: absolute;
+  top: 1.5rem;
+  transition: 0.25s ease;
+}
+
+.input-field {
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+  font: inherit;
+  font-size: 1.125rem;
+  padding: 0.25rem 0;
+}
+
+.input-field:focus,
+.input-field:valid {
+  outline: 0;
+  border-bottom-color: #000;
+  & + .input-label {
+    color: #000;
+    transform: translateY(-1.5rem);
+  }
+}
+
+.action {
+  margin-top: 2rem;
+}
+
+.action-button {
+  font: inherit;
+  font-size: 1.25rem;
+  padding: 1em;
+  width: 100%;
+  font-weight: 500;
+  background-color: #000;
+  border-radius: 10px;
+  color: #fff;
+  border: 0;
+  &:focus {
+    outline: 0;
+  }
+  transition: all 0.5s ease;
+}
+
+.action-button:hover {
+  border-radius: 12px;
+}
+
+.action-button:active {
+  scale: 0.8;
+}
+
+.card-info {
+  padding: 1rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #8597a3;
+  a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+.log-out-btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  outline: none;
+  background: black;
+  border: none;
+  font-weight: 600;
+  color: white;
+  transition: all 0.5s ease;
+}
+
+.log-out-btn:hover {
+  transform: translateY(-2px);
+  border-radius: 12px;
+}
+
+.log-out-btn:active {
+  scale: 0.8;
+}
+
+.buy-now-btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  outline: none;
+  background: black;
+  border: none;
+  font-weight: 600;
+  color: white;
+  transition: all 0.5s ease;
+}
+
+.buy-now-btn:hover {
+  transform: translateY(-2px);
+  border-radius: 12px;
+}
+
+.buy-now-btn:active {
+  scale: 0.8;
+}
+
+.admin-badge {
+  border: 1px solid black;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.go-to {
+  outline: none;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 10px;
+  transition: all 0.1s ease;
+  background: black;
+  color: white;
+}
+
+.go-to:hover {
+  border-radius: 12px;
+}
+
+.go-to:active {
+  scale: 0.8;
+}
